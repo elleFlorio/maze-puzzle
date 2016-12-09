@@ -58,7 +58,7 @@ You can attach a volume containing the map file to use and then run the software
 ```
 docker run --rm -v /host/path/to/maps:/tmp elleflorio/mazepuzzle /tmp/testMaze.json 2 "Knife" "Potted Plant"
 ```
-this command will create (and remove at the end) a Docker container attaching the host folder containing the maps to the `\tmp` folder inside the container, then it will run the software using the input `/tmp/testMaze.json 2 "Knife" "Potted Plant"`.
+this command will create (and remove at the end) a Docker container attaching the host folder containing the maps to the `/tmp` folder inside the container, then it will run the software using the input `/tmp/testMaze.json 2 "Knife" "Potted Plant"`.
 
 If you prefer to run it without a Docker container, simply `go get` this repo:
 ```
