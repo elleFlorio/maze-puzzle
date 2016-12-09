@@ -48,11 +48,12 @@ ID	Room		Object Collected
 ### Assumptions ###
 I made the following assumptions in the development of this software:
 - the map file is valid and correct;
-- the objects are unique (i.e., the same object cannot be in more than one room)
-- the id of the rooms starts from 1
+- the objects are unique (i.e., the same object cannot be in more than one room);
+- the id of the rooms starts from 1;
 
 ### Run the software ###
-This software can be run through a Docker container: `elleflorio/mazepuzzle`.
+This software can be run through a Docker container: [`elleflorio/mazepuzzle`](https://hub.docker.com/r/elleflorio/mazepuzzle/).
+
 You can attach a volume containing the map file to use and then run the software with a specific input, like this:
 ```
 docker run --rm -v /host/path/to/maps:/tmp elleflorio/mazepuzzle /tmp/testMaze.json 2 "Knife" "Potted Plant"
