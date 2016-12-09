@@ -21,7 +21,7 @@
   			"name": "Kitchen",
   			"east":2,
   			"south":6, 
-  			"objects": [ { "name": "Gun" } ] 
+  			"objects": [ { "name": "Gun" }, { "name" : "Bat" } ] 
   		},
   		{ 
   			"id": 4, 

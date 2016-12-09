@@ -73,29 +73,12 @@ func GetPath(start int, targets []int) []int {
 	}
 
 	nodes := append([]int{start}, targets...)
-	//return findPathOrder(nodes)
 
 	return findPathGreedy(nodes, 0, []int{})
 
 }
 
-func findPathOrder(nodes []int) []int {
-	path := []int{nodes[0]}
-	for i := 0; i < len(nodes)-1; i++ {
-		n1 := nodes[i]
-		n2 := nodes[i+1]
-		p := routeMap[n1][n2].path
-		if len(p) < 2 {
-			path = append(path, p...)
-		} else {
-			path = append(path, p[1:]...)
-		}
-
-	}
-
-	return path
-}
-
+// Find the path taking every time the closest next room
 func findPathGreedy(nodes []int, index int, path []int) []int {
 	distance := c_MAX_DISTANCE
 	next := 0
@@ -104,16 +87,20 @@ func findPathGreedy(nodes []int, index int, path []int) []int {
 	current := nodes[index]
 	nodes = append(nodes[0:index], nodes[index+1:]...)
 
+	// Done
 	if len(nodes) < 1 {
 		path = append(path, current)
 		return path
 	}
 
 	for i, node := range nodes {
+		// If between the possible next room there is the current
+		// "move" to that instantly without updating the path
 		if node == current {
 			return findPathGreedy(nodes, i, path)
 		}
 
+		// Get the closest
 		nextDist := routeMap[current][node].cost
 		if nextDist < distance {
 			distance = nextDist
@@ -122,6 +109,8 @@ func findPathGreedy(nodes []int, index int, path []int) []int {
 		}
 	}
 
+	// Update the path discarding the last element
+	// (it will be added as the next current room)
 	toAdd := routeMap[current][next].path
 	if len(toAdd) > 1 {
 		path = append(path, toAdd[:len(toAdd)-1]...)
