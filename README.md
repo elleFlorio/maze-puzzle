@@ -49,7 +49,7 @@ ID	Room		Object Collected
 I made the following assumptions in the development of this software:
 - the map file is valid and correct;
 - the objects are unique (i.e., the same object cannot be in more than one room);
-- the id of the rooms starts from 1;
+- the id of the rooms starts from 1.
 
 ### Run the software ###
 This software can be run through a Docker container: [`elleflorio/mazepuzzle`](https://hub.docker.com/r/elleflorio/mazepuzzle/).
